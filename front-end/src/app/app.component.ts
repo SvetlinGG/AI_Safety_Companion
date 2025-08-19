@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,25 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Hackathon';
+  question = '';
+  answer = '';
+  audioUrl = '';
+  sttText = '';
+
+  constructor(private api: ApiService){}
+
+  onAsk(){
+    this.api.ask(this.question).subscribe( r => this.answer = r.answer);
+  }
+
+  onSpeak(){
+    this.api.tts(this.answer, 'en').subscribe(blob => {
+      this.audioUrl = URL.createObjectURL(blob);
+      const a = new Audio(this.audioUrl);
+      a.play();
+    });
+  }
+  
+
+
 }

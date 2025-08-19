@@ -1,1 +1,18 @@
-<h1>Hello my firs {{title}} project</h1>
+<main class="container">
+  <h1>AI Safety Companion (Offline MVP)</h1>
+
+  <section class="card">
+    <h2>Text question</h2>
+    <input [(ngModel)]="question" placeholder="Пример: Какво да правя при изгаряне?">
+    <button (click)="onAsk()">Ask</button>
+    <pre *ngIf="answer">{{ answer }}</pre>
+    <button *ngIf="answer" (click)="onSpeak()">🔊 Speak</button>
+    <audio #player controls *ngIf="audioUrl" [src]="audioUrl"></audio>
+  </section>
+
+  <section class="card">
+    <h2>Voice input</h2>
+    <input type="file" accept="audio/*" (change)="onFile($event)">
+    <p *ngIf="sttText"><b>Transcribed:</b> {{ sttText }}</p>
+  </section>
+</main>
