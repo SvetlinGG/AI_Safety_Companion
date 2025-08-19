@@ -3,7 +3,7 @@
 
   <section class="card">
     <h2>Text question</h2>
-    <input [(ngModel)]="question" placeholder="Пример: Какво да правя при изгаряне?">
+    <input  placeholder="Example: What can I do when burn">
     <button (click)="onAsk()">Ask</button>
     <pre *ngIf="answer">{{ answer }}</pre>
     <button *ngIf="answer" (click)="onSpeak()">🔊 Speak</button>
