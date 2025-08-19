@@ -1,5 +1,23 @@
-.container { max-width: 800px; margin: 24px auto; padding: 0 16px; }
-.card { padding: 16px; border: 1px solid #eee; border-radius: 12px; margin-bottom: 16px; }
-input { width: 100%; padding: 8px; margin: 8px 0; }
-button { margin-right: 8px; }
-pre { white-space: pre-wrap; }
+.container { 
+    max-width: 800px; 
+    margin: 24px auto; 
+    padding: 0 16px; 
+    border: 1px solid red;
+}
+.card { 
+    padding: 16px; 
+    border: 1px solid #eee; 
+    border-radius: 12px; 
+    margin-bottom: 16px; 
+}
+input { 
+    width: 100%; 
+    padding: 8px; 
+    margin: 8px 0; 
+}
+button { 
+    margin-right: 8px; 
+}
+pre { 
+    white-space: pre-wrap; 
+}
