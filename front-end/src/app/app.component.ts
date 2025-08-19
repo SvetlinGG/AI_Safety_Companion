@@ -28,7 +28,13 @@ export class AppComponent {
       a.play();
     });
   }
-  
-
+  onFile(e: any){
+    const file: File = e.target.files?.[0];
+    if (!file) return;
+    this.api.stt(file).subscribe( r => {
+      this.sttText = r.text;
+      this.question = this.sttText;
+    });
+  }
 
 }
