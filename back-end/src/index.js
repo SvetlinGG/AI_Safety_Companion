@@ -56,12 +56,19 @@ app.post('/api/stt', upload.single('audio'), async (req, res) => {
             // whisper.cpp inference
             const whisperBin = path.join(__dirname, './models/whisper/whisper.cpp/main');
             const modelPath = path.join(__dirname, './models/whisper/whisper.cpp/models/ggml-base.bin')
-            const wp
-        })
+            const wp = spawn(whisperBin, ['-m', modelPath, '-f', wavFile, '-otxt', '-of', outPrefix]);
+            wp.on('close', () => {
+                const text = fs.readFileSync(`${outPrefix}.txt`, 'utf8');
+                res.json({text: text.trim() });
+            });
+        });
     } catch (e) {
-        
+        res.status(500).json({error: e.message});
     }
-})
+});
+
+// --- TTS (Pipes) ---
+
 
 
 
