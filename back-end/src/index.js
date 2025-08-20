@@ -31,11 +31,11 @@ app.post('/api/ask', async (req, res) => {
             method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(body)
         });
         const data = await r.json();
-        res.json({answer: data?.messages?.content || ''});
+        res.json({answer: data?.message?.content || ''});
     } catch (e) {
-        
+        res.status(500).json({error: e.message})
     }
-})
+});
 
 
 
