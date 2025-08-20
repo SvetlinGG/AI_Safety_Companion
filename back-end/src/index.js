@@ -87,3 +87,4 @@ app.post('/api/tts', async (req, res) => {
     }
 });
 app.listen( PORT, () => console.log('API listening on', PORT));
+/Users/admin/Desktop/PROJECT/github-hackathon/AI_Safety_Companion/back-end
