@@ -34,6 +34,7 @@ export class AppComponent {
     this.api.stt(file).subscribe( r => {
       this.sttText = r.text;
       this.question = this.sttText;
+      
     });
   }
 
