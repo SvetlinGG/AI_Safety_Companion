@@ -1,6 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const body = require('body-parser');
+const { spawn} = require('child_process');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path')
+
 
 const OLLAMA_URL = process.env.OLLAMA_URL || 'http://127.0.0.1:11434';
 const PORT = process.env.PORT || 3001;
@@ -36,6 +41,27 @@ app.post('/api/ask', async (req, res) => {
         res.status(500).json({error: e.message})
     }
 });
+
+// --- STT (Whisper.cpp) ---
+
+const upload = multer({dest: path.join(__dirname, '../tmp')});
+app.post('/api/stt', upload.single('audio'), async (req, res) => {
+    try {
+        const inFile = req.file.path;
+        const wavFile = `${inFile}.wav`;
+        const outPrefix = `${inFile}.out`;
+        // convert to wav 16 kHz mono
+        const ff = spawn('ffmpeg', ['-y', '-i', inFile, '-ar', '16000', '-ac', '1', wavFile]);
+        ff.on('close', () => {
+            // whisper.cpp inference
+            const whisperBin = path.join(__dirname, './models/whisper/whisper.cpp/main');
+            const modelPath = path.join(__dirname, './models/whisper/whisper.cpp/models/ggml-base.bin')
+            const wp
+        })
+    } catch (e) {
+        
+    }
+})
 
 
 
