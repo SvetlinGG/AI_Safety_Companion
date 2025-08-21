@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './api.service';
 import { MicRecordBtnComponent } from './components/mic-record-btn/mic-record-btn.component';
+import { TtsPlayerComponent } from './components/tts-player/tts-player.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MicRecordBtnComponent],
+  imports: [RouterOutlet, MicRecordBtnComponent, TtsPlayerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
