@@ -70,21 +70,4 @@ app.post('/api/stt', upload.single('audio'), async (req, res) => {
 // --- TTS (Pipes) ---
 app.post('/api/tts', async (req, res) => {
     try {
-        const {text, lang = 'en'} = req.body;
-        const outWav = path.join(__dirname, `./tmp/tts-${Date.now()}.wav`);
-        const voiceDir = path.join(__dirname, `./models/piper/${lang}`);
-        const args = ['-m', path.join(voiceDir, 'voice.onnx'), '-f', path.join(voiceDir, 'config.json'), '-o', outWav];
-        const p = spawn('piper', args);
-        p.stdin.write(text);
-        p.stdin.end();
-        p.on('close', () => {
-            const buf = fs.readFileSync(outWav);
-            res.setHeader('Content-Type', 'audio/wav');
-            res.send(buf);
-        });
-    } catch (e) {
-        res.status(500).json({error: e.message});
-    }
-});
-app.listen( PORT, () => console.log('API listening on', PORT));
-app.listener
+        const {t
