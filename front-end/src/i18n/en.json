@@ -1,0 +1,25 @@
+{
+    "app": {
+      "title": "AI Safety Companion",
+      "disclaimer": "This is not medical advice. In an emergency, call 112 immediately."
+    },
+    "errors": {
+      "server": "An error occurred while processing the request.",
+      "no_connection": "No connection to the model. Check the local server.",
+      "stt_failed": "Speech recognition failed.",
+      "tts_failed": "Speech synthesis failed."
+    },
+    "sos": {
+      "call_112": "Call 112",
+      "first_aid": "First Aid",
+      "fire": "Fire",
+      "earthquake": "Earthquake"
+    },
+    "commands": {
+      "ask": "Ask",
+      "speak": "Speak",
+      "stop": "Stop",
+      "settings": "Settings"
+    }
+  }
+  
