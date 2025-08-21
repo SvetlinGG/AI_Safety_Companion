@@ -26,6 +26,7 @@ export class AppComponent {
       this.audioUrl = URL.createObjectURL(blob);
       const a = new Audio(this.audioUrl);
       a.play();
+      
     });
   }
   onFile(e: any){
