@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { routes } from '../../app.routes';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-mic-record-btn',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mic-record-btn.component.html',
   styleUrl: './mic-record-btn.component.css'
 })

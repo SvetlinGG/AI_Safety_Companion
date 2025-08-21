@@ -9,7 +9,7 @@
     <button *ngIf="answer" (click)="onSpeak()">🔊 Speak</button>
     <audio #player controls *ngIf="audioUrl" [src]="audioUrl"></audio>
   </section>
-
+  <app-mic-record-btn />
   <section class="card">
     <h2>Voice input</h2>
     <input type="file" accept="audio/*" (change)="onFile($event)">
