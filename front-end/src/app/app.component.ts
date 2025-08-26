@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './api.service';
 import { MicRecordBtnComponent } from './components/mic-record-btn/mic-record-btn.component';
 import { TtsPlayerComponent } from './components/tts-player/tts-player.component';
+import { TranslatePipe } from './pipes/t.pipe';
+import { I18nService } from './services/i18n.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MicRecordBtnComponent, TtsPlayerComponent],
+  imports: [RouterOutlet, MicRecordBtnComponent, TtsPlayerComponent,TranslatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  private i18n = inject(I18nService);
+  lang = computed(() => this.i18n.lang());
+
+  setLang(l: 'en'){
+    this.i18n.setLang(l);
+  }
   question = '';
   answer = '';
   audioUrl = '';

@@ -1,3 +1,21 @@
+<header>
+  <h1>{{ 'app.title' | t }}</h1>
+  <small class="muted">{{ 'app.disclaimer' | t }}</small>
+
+  <div class="lang">
+    <!-- <button (click)="setLang('bg')" [class.active]="lang==='bg'">BG</button> -->
+    <button (click)="setLang('en')" [class.active]="lang==='en'">EN</button>
+  </div>
+</header>
+
+<nav>
+  <a routerLink="/">{{ 'sos.first_aid' | t }}</a>
+  <a routerLink="/steps">{{ 'sos.earthquake' | t }}</a>
+  <a routerLink="/settings">{{ 'commands.settings' | t }}</a>
+</nav>
+<router-outlet></router-outlet>
+
+
 <main class="container">
   <h1>AI Safety Companion (Offline MVP)</h1>
 
